@@ -136,17 +136,20 @@
         </div>
 
         <div class="col-md-6 col-sm-12">
+
             <form class="form-horizontal" role="form">
               <div class="form-group">
                 <label class="control-label col-md-3" for="email">Nama Peserta:</label>
                 <div class="col-md-9">
-                  <input type="text" class="form-control" id="email" placeholder="NAMA PESERTA">
+                  <input type="text" class="form-control" id="nama_peserta" placeholder="NAMA PESERTA" onKeyUp='validate()'>
+                  <span style="color:red;" id="error_nama_peserta"></span>
                 </div>
               </div>
               <div class="form-group">
                 <label class="control-label col-md-3" for="pwd">Universitas</label>
                 <div class="col-md-9"> 
-                  <input type="text" class="form-control" id="pwd" placeholder="NAMA UNIVERSITAS">
+                  <input type="text" class="form-control" id="nama_universitas" placeholder="NAMA UNIVERSITAS" onKeyUp='validate()'>
+                  <span style="color:red;" id="error_nama_universitas"></span>
                 </div>
               </div>
               <div class="form-group">
@@ -195,6 +198,7 @@
                 </div>
               </div>
             </form>
+
         </div>
     </div>
 	<!-- konten -->
@@ -208,6 +212,31 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Script to Activate the Carousel -->
+
+
+    <script type="text/javascript">
+        
+
+    var validate = function() {
+
+        //nama peserta
+        var lengthNamaPeserta = $('#nama_peserta').val().length;
+        if (lengthNamaPeserta < 8) {
+            $('#error_nama_peserta').html('Nama peserta minimal 8 karakter');
+        } else {
+            $('#error_nama_peserta').html('');
+        }
+
+        var lengthNamaUniversitas = $('#nama_universitas').val().length;
+        if (lengthNamaUniversitas == 0) {
+            $('#error_nama_universitas').html('Nama universitas tidak boleh kosong');
+        } else {
+            $('#error_nama_universitas').html('');
+        }
+
+    }
+
+    </script>
    
 
 </html>
